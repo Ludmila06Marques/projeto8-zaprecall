@@ -1,12 +1,12 @@
 import React from "react"
 
-export default function TelaInicial(props){
+export default function TelaInicial(){
 
     const [iniciar , setIniciar]= React.useState("tela1")
     
     function Start(){
         setIniciar("tela1 escondido")
-        
+
     }
 
     return(

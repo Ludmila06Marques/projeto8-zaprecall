@@ -39,6 +39,7 @@ TELA 2 CIMA PERGUNTAS PERGUNTA*/
     display: flex;
     justify-content: center;
     align-items: center;
+    
    
 }
 .perguntas{
@@ -47,29 +48,127 @@ TELA 2 CIMA PERGUNTAS PERGUNTA*/
     justify-content: center;
     align-items: center;
 }
-.pergunta{
+
+.frontface{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 300px;
     height: 65px;
     background-color: #FFFFFF;
     border-radius: 5px;
     margin-top: 25px;
     margin-bottom: 25px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 10px;
-
 }
-.pergunta>h3{
+.frontface>h3{
 color: #333333;
 font-family:'Recursive', sans-serif;
 font-weight: bold;
 font-size: 16px;
 }
-.pergunta>.icone{
+.frontface>.icone{
 font-size: 30px;
+visibility: visible;
 }
+.backface , .awnser{
+    position: relative;
+    width: 299px;
+    height: 131px;
+    background-color: #FFFFD4;
+    border-radius: 5px;
+}
+.backface>h3 , .awnser>h3{
+    padding: 10px;
+    font-size: 18px;
+    color: #333333;
+}
+.backface>img{
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 30px;
+    height: 20px;
+}
+.opcoes{
+     position: absolute;
+    display: flex;
+    justify-content: center;
+    bottom: 6px;
+    left: 13px;
+   
+}
+.opcao{
+    
+    height: 37px;
+    width: 85px;
+    margin-right:7px;
+   border-radius: 5px;
+}
+.opcao>h1{
+   text-align: center;
+   font-weight: 400;
+    color: 
+    #FFFFFF;
+    font-size: 12px;
+}
+.red{
+background-color: #FF3030;
+;
 
+}
+.green{
+background-color: 
+#2FBE34;
+}
+.orange{
+    background-color: 
+    #FF922E;
+}
+.errou h3{
+    text-decoration: line-through;
+color: #FF3030;
+}
+.maisoumenos h3{
+    text-decoration: line-through;
+color: #FF922E;
+}
+.acertou h3{
+    text-decoration: line-through;
+color: #2FBE34;
+}
+.redondo{
+    color: white;
+    border-radius: 60px;
+}
+.contador{
+    height: 70px;
+    width: 100%;
+    background-color: #FFFFFF;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+.contador>h3{
+   text-align: center;
+    font-size: 18px;
+    color: #333333;
+    font-family:'Recursive', sans-serif;
+}
+.cima>h1{
+    font-size: 36px;
+    color: 
+    #FFFFFF;
+}
+.cima>img{
+    margin-right: 10px;
+    width: 52px;
+    height: 60px;
+   
+}
+ion-icon{
+    visibility: visible;
+}
 .escondido{
     display: none;
 }
