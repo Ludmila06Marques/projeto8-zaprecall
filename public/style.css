@@ -169,6 +169,9 @@ color: #2FBE34;
 ion-icon{
     visibility: visible;
 }
+.pergunta:last-child{
+    margin-bottom: 70px;
+}
 .escondido{
     display: none;
 }

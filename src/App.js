@@ -1,11 +1,23 @@
-import TelaInicial from "./Telas/Tela1";
+import React from "react";
+import Tela1 from "./Telas/Tela1";
 import Tela2 from "./Telas/Tela2";
 
+
+
 export default function App(){
+
+   
+    const [comeco , setComeco ]= React.useState('init');
+
     return(
         <>
-        <TelaInicial />
-        <Tela2/>
+     { comeco ==='init' ?  <Tela1 /> :
+     
+          <Tela2/>  }
+    
+     
+        
+       
         </>
-    )
+    );
 }
