@@ -7,17 +7,13 @@ import Tela2 from "./Telas/Tela2";
 export default function App(){
 
    
-    const [comeco , setComeco ]= React.useState('init');
+  
+  
 
     return(
         <>
-     { comeco ==='init' ?  <Tela1 /> :
-     
-          <Tela2/>  }
-    
-     
-        
-       
-        </>
+         <Tela1 /> 
+          <Tela2/>   
+    </>
     );
 }

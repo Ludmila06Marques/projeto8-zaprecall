@@ -8,7 +8,7 @@ export default function Pergunta(props){
     const [escolherGreen , setEscolherGreen]=React.useState("opcao green")
     const [iconeType , setIconeType]=React.useState("play-outline")
     const[iconeColor , setIconeColor]=React.useState("icone")
-    function Virar(){
+    function Virar(){       
         setFlip("backface")
         setPergunta("frontface escondido")
     }
