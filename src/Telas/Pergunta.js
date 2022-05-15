@@ -1,6 +1,6 @@
 import React from "react"
-import Parabens from "./Parabens"
-import Contador from "./Contador"
+
+const arr=[]  
 export default function Pergunta(props){
     const [flip , setFlip]= React.useState("backface escondido ")
     const[pergunta , setPergunta]=React.useState("frontface")
@@ -29,17 +29,19 @@ export default function Pergunta(props){
             setPergunta("frontface errou")
             setIconeType("close-circle-outline")
             setIconeColor("icone red redondo")
-            setRespondida(1)  
-            setRespondidas([...respondidas,respondida])    
+            setRespondida(1) 
+           arr.push(respondida)
+           setRespondidas([...arr])  
                  
-        } 
+        }      
         function EscolherGreen(){
             setResposta("awnser escondido")
             setPergunta("frontface acertou")
             setIconeType("checkmark-circle-outline")
             setIconeColor("icone green redondo")
             setRespondida(2)  
-            setRespondidas([...respondidas,respondida])      
+            arr.push(respondida)  
+            setRespondidas([...arr])   
         }
         function EscolherOrange(){
             setResposta("awnser escondido")
@@ -47,10 +49,12 @@ export default function Pergunta(props){
             setIconeType("help-circle-outline")
             setIconeColor("icone orange redondo")
             setRespondida(3)
-            setRespondidas([...respondidas,respondida])    
+            arr.push(respondida)  
+            setRespondidas([...arr])  
         
         }
-        console.log(respondidas) 
+
+    
     return(
         <> 
      
@@ -63,15 +67,16 @@ export default function Pergunta(props){
     </div>
 <div  class={resposta}><h3>{props.resposta}</h3>
     <div class="opcoes">
-    <div onClick={EscolherRed} class={escolherRed}><h1>Não lembrei</h1></div>
-    <div onClick={EscolherOrange} class={escolherOrange}><h1>Quase não lembrei</h1></div>
-    <div onClick={EscolherGreen} class={escolherGreen}><h1>Zap!</h1></div>
+    <div onClick={()=>EscolherRed()} class={escolherRed}><h1>Não lembrei</h1></div>
+    <div onClick={()=>EscolherOrange()} class={escolherOrange}><h1>Quase não lembrei</h1></div>
+    <div onClick={()=>EscolherGreen()} class={escolherGreen}><h1>Zap!</h1></div>
     </div>
 </div>
-     <Contador respondidas={respondidas} />
-    
+        
 </div> 
 
+{/*<Parabens respondidas={respondidas}/>
+<Upz respondidas={respondidas}/>*/}
 </>
 )
 }

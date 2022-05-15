@@ -1,8 +1,8 @@
 
 import Pergunta from "./Pergunta"
+import Contador from "./Contador"
 
-
-export default function Tela2(){
+export default function Tela2({respondidas , iconeColor , iconeType }){
     const question= [
         {  titulo:"Pergunta 1",
         pergunta:"O que é JSX? ",
@@ -44,6 +44,9 @@ return(
       <div class="perguntas">
            {perguntas} 
       </div>
+
+{/*<Contador/> tem que entrar aquiiiiiiiiiiiii*/}
+
      </div>
     </>
 )
