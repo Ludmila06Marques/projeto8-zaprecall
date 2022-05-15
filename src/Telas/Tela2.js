@@ -5,8 +5,7 @@
 
 import Pergunta from "./Pergunta"
 import Contador from "../Footer/Contador"
-import Parabens from "../Footer/Parabens"
-import Upz from "../Footer/Upz"
+import Resultado from "../Footer/Resultado"
 
 export default function Tela2({respondidas , iconeColor , iconeType }){
    //array das perguntas
@@ -47,6 +46,10 @@ export default function Tela2({respondidas , iconeColor , iconeType }){
     }
     //Embaralhando
     perguntas.sort(randomize)
+    //Reiniciar o jogo
+    function reiniciar(){
+        window.location.reload();
+    }
 
 
 return(
@@ -60,7 +63,49 @@ return(
            {perguntas} 
       </div>
     {/*Logica para caso as 8 perguntas tenham sido respondidas aparecer a mensagem de parabens ou de falha*/}
-    {/* {respondidas.length !==8 ?  <Contador respondidas={respondidas} iconeColor={iconeColor} iconeType={iconeType} /> : iconeColor="icone red redondo"? <Upz/> : <Parabens/>}*/}
+     {/* {array.length !==8 
+     ? 
+      <Contador/>
+    : 
+        {array.includes("red"== true)
+        ? 
+        <Resultado>
+              <div class="caixa">
+                        <div className="texto">
+                                <h1> 😢Putz...</h1>
+                                <h2> Ainda faltam alguns...<br/> Mas não desanime!</h2>
+                                <h3>{respondidas.length}/8</h3>
+                        </div> 
+
+                <div className="icone">
+                ICONES DAS RESPOSTAS
+                </div>
+                
+                <button onClick={()=>reiniciar()} class="reiniciar"> 
+                    REINICIAR RECALL
+                </button>
+              </div>
+        </Resultado>
+        :
+        <Resultado>
+                <div class="caixa">
+                        <div className="texto"> 
+                                    <h1>😀 Parabéns!</h1>
+                                    <h2>Você não esqueceu de <br/> nenhum flashcard!</h2>
+                                    <h3>{respondidas.length}/8</h3>
+                         </div>    
+
+                    <div className="icone">
+                    ICONES DAS RESPOSTAS
+                    </div>
+                    
+                    <button onClick={()=>reiniciar()} class="reiniciar"> 
+                    REINICIAR RECALL
+                    </button>
+             </div>
+        </Resultado>
+        }*/}
+  
 
      </div>
     </>

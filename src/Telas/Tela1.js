@@ -1,4 +1,4 @@
-//Tela inicial ; Clicar no botao para iniciar o jogo
+//Tela inicial => Clicar no botao para iniciar o jogo
 
 import { Link } from 'react-router-dom'
 import React from 'react'

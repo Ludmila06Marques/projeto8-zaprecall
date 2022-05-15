@@ -1,8 +1,9 @@
 //Funcionamento das cartas
+//Resolver o escolhida nao estar pegando o valor 
 
 import React from "react"
 
-const arr=[]  
+let array=[]
 export default function Pergunta(props){
     const [flip , setFlip]= React.useState("backface escondido ")
     const[pergunta , setPergunta]=React.useState("frontface")
@@ -12,7 +13,7 @@ export default function Pergunta(props){
     const [escolherGreen , setEscolherGreen]=React.useState("opcao green")
     const [iconeType , setIconeType]=React.useState("play-outline")
     const[iconeColor , setIconeColor]=React.useState("icone")
-    const[respondida , setRespondida]=React.useState(0)
+    const[escolhida , setEscolhida]=React.useState('nada')
     let [respondidas , setRespondidas]=React.useState([])
 
     function Virar(){   
@@ -31,51 +32,60 @@ export default function Pergunta(props){
             setPergunta("frontface errou")
             setIconeType("close-circle-outline")
             setIconeColor("icone red redondo")
-            setRespondida(1) 
-           arr.push(respondida)
-           setRespondidas([...arr])  
-                 
-        }      
+            setEscolhida("red") 
+              contar()               
+        }  
+        
         function EscolherGreen(){
             setResposta("awnser escondido")
             setPergunta("frontface acertou")
             setIconeType("checkmark-circle-outline")
             setIconeColor("icone green redondo")
-            setRespondida(2)  
-            arr.push(respondida)  
-            setRespondidas([...arr])   
+            setEscolhida('green')            
+            contar()  
         }
+        
         function EscolherOrange(){
             setResposta("awnser escondido")
             setPergunta("frontface maisoumenos")
             setIconeType("help-circle-outline")
             setIconeColor("icone orange redondo")
-            setRespondida(3)
-            arr.push(respondida)  
-            setRespondidas([...arr])  
-        
+            setEscolhida('orange')
+            contar() 
         }
-
-      
+        function contar(){
+            array.push(escolhida)
+            setRespondidas([...respondidas])
+        }
+        
+console.log(escolhida)  
+console.log(array)
+console.log(array.length)
     return(
         <> 
     
-        <div  className="pergunta">
-    <div onClick={Virar} className={pergunta}>
-    <h3>Pergunta {props.index+1}</h3><ion-icon className={iconeColor} name={iconeType}></ion-icon>
-    </div>
-    <div className={flip}><h3>{props.pergunta}</h3>
-    <img onClick={Resposta} src="./img/setinha.png" alt="setinha"/>
-    </div>
-<div  className={resposta}><h3>{props.resposta}</h3>
-    <div className="opcoes">
-    <div onClick={()=>EscolherRed()} className={escolherRed}><h1>Não lembrei</h1></div>
-    <div onClick={()=>EscolherOrange()} className={escolherOrange}><h1>Quase não lembrei</h1></div>
-    <div onClick={()=>EscolherGreen()} className={escolherGreen}><h1>Zap!</h1></div>
-    </div>
-</div>
-        
+        <div  class="pergunta">
+            {/*Carta inicial*/}
+            <div onClick={Virar} class={pergunta}>
+            <h3>Pergunta {props.index+1}</h3><ion-icon class={iconeColor} name={iconeType}></ion-icon>
+            </div>
+            {/*Carta de pergunta*/}
+            <div class={flip}><h3>{props.pergunta}</h3>
+            <img onClick={Resposta} src="./img/setinha.png" alt="setinha"/>
+            </div>
+              {/*Carta de resposta*/}
+                <div  class={resposta}><h3>{props.resposta}</h3>
+                    <div class="opcoes">
+                    <div onClick={()=>EscolherRed()} class={escolherRed}><h1>Não lembrei</h1></div>
+                    <div onClick={()=>EscolherOrange()} class={escolherOrange}><h1>Quase não lembrei</h1></div>
+                    <div onClick={()=>EscolherGreen()} class={escolherGreen}><h1>Zap!</h1></div>
+                    </div>
+               </div>
+
        </div> 
+      
+        
 </>
+
 )
 }

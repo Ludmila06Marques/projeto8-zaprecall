@@ -1,3 +1,4 @@
+//Utilizei a maneira do React Router
 import { BrowserRouter , Routes , Route } from "react-router-dom";
 import React from "react";
 import Tela1 from "./Telas/Tela1";
