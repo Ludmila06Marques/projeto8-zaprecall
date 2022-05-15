@@ -60,18 +60,18 @@ export default function Pergunta(props){
     return(
         <> 
     
-        <div  class="pergunta">
-    <div onClick={Virar} class={pergunta}>
-    <h3>Pergunta {props.index+1}</h3><ion-icon class={iconeColor} name={iconeType}></ion-icon>
+        <div  className="pergunta">
+    <div onClick={Virar} className={pergunta}>
+    <h3>Pergunta {props.index+1}</h3><ion-icon className={iconeColor} name={iconeType}></ion-icon>
     </div>
-    <div class={flip}><h3>{props.pergunta}</h3>
+    <div className={flip}><h3>{props.pergunta}</h3>
     <img onClick={Resposta} src="./img/setinha.png" alt="setinha"/>
     </div>
-<div  class={resposta}><h3>{props.resposta}</h3>
-    <div class="opcoes">
-    <div onClick={()=>EscolherRed()} class={escolherRed}><h1>Não lembrei</h1></div>
-    <div onClick={()=>EscolherOrange()} class={escolherOrange}><h1>Quase não lembrei</h1></div>
-    <div onClick={()=>EscolherGreen()} class={escolherGreen}><h1>Zap!</h1></div>
+<div  className={resposta}><h3>{props.resposta}</h3>
+    <div className="opcoes">
+    <div onClick={()=>EscolherRed()} className={escolherRed}><h1>Não lembrei</h1></div>
+    <div onClick={()=>EscolherOrange()} className={escolherOrange}><h1>Quase não lembrei</h1></div>
+    <div onClick={()=>EscolherGreen()} className={escolherGreen}><h1>Zap!</h1></div>
     </div>
 </div>
         

@@ -51,12 +51,12 @@ export default function Tela2({respondidas , iconeColor , iconeType }){
 
 return(
     <>
-     <div  class="tela2 ">
-            <div class="cima">
+     <div  className="tela2 ">
+            <div className="cima">
             <img src="./img/logo-pequeno.png" alt="logo-pequeno"/>
             <h1>ZapRecall</h1>
             </div>
-      <div class="perguntas">
+      <div className="perguntas">
            {perguntas} 
       </div>
     {/*Logica para caso as 8 perguntas tenham sido respondidas aparecer a mensagem de parabens ou de falha*/}

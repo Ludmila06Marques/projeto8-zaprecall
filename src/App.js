@@ -6,7 +6,6 @@ import Tela2 from "./Telas/Tela2";
 
 
 export default function App(){
-    
     return(
         <>
         <BrowserRouter>
@@ -15,7 +14,7 @@ export default function App(){
        
            <Route path="/" element={  <Tela1 /> }>
            </Route> 
-            <Route path="/tela2" element={ <Tela2 />} >
+            <Route path="/tela2" element={ <Tela2/> }>
            
             </Route>      
          
