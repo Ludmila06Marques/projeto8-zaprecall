@@ -1,38 +1,53 @@
+//Montar a estrutura da tela 2 ; 
+//Nao estou conseguindo :
+// -Fazer o indice ficar organizado apos embaralhar
+// - Importar os componentes da pasta Footer
 
 import Pergunta from "./Pergunta"
-import Contador from "./Contador"
+import Contador from "../Footer/Contador"
+import Parabens from "../Footer/Parabens"
+import Upz from "../Footer/Upz"
 
 export default function Tela2({respondidas , iconeColor , iconeType }){
+   //array das perguntas
     const question= [
-        {  titulo:"Pergunta 1",
+        {  
         pergunta:"O que é JSX? ",
         resposta:"Uma extensão de linguagem do JavaScript"}
         ,
-        {  titulo:"Pergunta 2",
+        {  
         pergunta:" React é __ ?",
         resposta:"uma biblioteca JavaScript para construção de interfaces"}
         ,
-        {  titulo:"Pergunta 3",
+        {  
         pergunta:"Componentes devem iniciar com __?",
         resposta:"Letra maiúscula"}
         ,
-        {  titulo:"Pergunta 4",
+        {  
         pergunta:"Podemos colocar __ dentro do JSX",
         resposta:"expressões"},
-        {  titulo:"Pergunta 5",
+        {  
         pergunta:"O ReactDOM nos ajuda __ ",
         resposta:"interagindo com a DOM para colocar componentes React na mesma"},
-        {  titulo:"Pergunta 6",
+        {  
         pergunta:"Usamos o npm para __ ",
         resposta:"gerenciar os pacotes necessários e suas dependências"}
-        , {  titulo:"Pergunta 7",
+        , {  
         pergunta:"Usamos props para __",
         resposta:"passar diferentes informações para componentes "},
-        {  titulo:"Pergunta 8",
+        {  
         pergunta:"Usamos estado (state) para __ ",
         resposta:"dizer para o React quais informações quando atualizadas devem renderizar a tela novamente"}
       ]
-      const perguntas = question.map(item=> <Pergunta titulo={item.titulo} pergunta={item.pergunta} resposta={item.resposta} />)
+      const perguntas = question.map((item , index)=> <Pergunta key={index} index={index} pergunta={item.pergunta} resposta={item.resposta} />)
+
+  //Funcao para embaralhar
+      function randomize () {
+        return Math.random() - 0.5;
+    }
+    //Embaralhando
+    perguntas.sort(randomize)
+
 
 return(
     <>
@@ -44,8 +59,8 @@ return(
       <div class="perguntas">
            {perguntas} 
       </div>
-
-{/*<Contador/> tem que entrar aquiiiiiiiiiiiii*/}
+    {/*Logica para caso as 8 perguntas tenham sido respondidas aparecer a mensagem de parabens ou de falha*/}
+    {/* {respondidas.length !==8 ?  <Contador respondidas={respondidas} iconeColor={iconeColor} iconeType={iconeType} /> : iconeColor="icone red redondo"? <Upz/> : <Parabens/>}*/}
 
      </div>
     </>

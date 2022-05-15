@@ -1,8 +1,7 @@
-
-export default function Contador({respondidas , iconeColor , iconeType }){
-
-   
-
+//Funcionamento do contador 
+//Nao estou conseguindo :
+//- Renderizar o respondidas.length
+export default function Contador(){
     return(  
         <div class="contador">
             <div class="icones">
@@ -11,4 +10,4 @@ export default function Contador({respondidas , iconeColor , iconeType }){
             <h3>{respondidas.length}/8</h3>
             </div>
     )
-}
+    }

@@ -1,3 +1,5 @@
+//Funcionamento das cartas
+
 import React from "react"
 
 const arr=[]  
@@ -54,13 +56,13 @@ export default function Pergunta(props){
         
         }
 
-    
+      
     return(
         <> 
-     
+    
         <div  class="pergunta">
     <div onClick={Virar} class={pergunta}>
-    <h3>{props.titulo}</h3><ion-icon class={iconeColor} name={iconeType}></ion-icon>
+    <h3>Pergunta {props.index+1}</h3><ion-icon class={iconeColor} name={iconeType}></ion-icon>
     </div>
     <div class={flip}><h3>{props.pergunta}</h3>
     <img onClick={Resposta} src="./img/setinha.png" alt="setinha"/>
@@ -73,10 +75,7 @@ export default function Pergunta(props){
     </div>
 </div>
         
-</div> 
-
-{/*<Parabens respondidas={respondidas}/>
-<Upz respondidas={respondidas}/>*/}
+       </div> 
 </>
 )
 }
