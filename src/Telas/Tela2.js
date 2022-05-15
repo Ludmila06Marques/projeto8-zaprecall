@@ -1,6 +1,6 @@
 
 import Pergunta from "./Pergunta"
-import Contador from "./Contador"
+
 
 export default function Tela2(){
     const question= [
@@ -33,7 +33,7 @@ export default function Tela2(){
         resposta:"dizer para o React quais informações quando atualizadas devem renderizar a tela novamente"}
       ]
       const perguntas = question.map(item=> <Pergunta titulo={item.titulo} pergunta={item.pergunta} resposta={item.resposta} />)
- 
+
 return(
     <>
      <div  class="tela2 ">
@@ -44,7 +44,6 @@ return(
       <div class="perguntas">
            {perguntas} 
       </div>
-            <Contador/>
      </div>
     </>
 )

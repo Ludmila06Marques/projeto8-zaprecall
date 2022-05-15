@@ -1,4 +1,6 @@
 import React from "react"
+import Parabens from "./Parabens"
+import Contador from "./Contador"
 export default function Pergunta(props){
     const [flip , setFlip]= React.useState("backface escondido ")
     const[pergunta , setPergunta]=React.useState("frontface")
@@ -8,34 +10,51 @@ export default function Pergunta(props){
     const [escolherGreen , setEscolherGreen]=React.useState("opcao green")
     const [iconeType , setIconeType]=React.useState("play-outline")
     const[iconeColor , setIconeColor]=React.useState("icone")
-    function Virar(){       
-        setFlip("backface")
-        setPergunta("frontface escondido")
+    const[respondida , setRespondida]=React.useState(0)
+    let [respondidas , setRespondidas]=React.useState([])
+
+    function Virar(){   
+        if(iconeColor=="icone"){
+            setFlip("backface")
+            setPergunta("frontface escondido")
+        } 
+       
     }
     function Resposta(){
         setFlip("backface escondido")
         setResposta("awnser")
     }
-    function EscolherRed(){
-        setResposta("awnser escondido")
-        setPergunta("frontface errou")
-        setIconeType("close-circle-outline")
-        setIconeColor("icone red redondo")
-    }
-    function EscolherGreen(){
-        setResposta("awnser escondido")
-        setPergunta("frontface acertou")
-         setIconeType("checkmark-circle-outline")
-        setIconeColor("icone green redondo")
-    }
-    function EscolherOrange(){
-        setResposta("awnser escondido")
-        setPergunta("frontface maisoumenos")
-        setIconeType("help-circle-outline")
-        setIconeColor("icone orange redondo")
-      
-    }
-    return( <div  class="pergunta">
+        function EscolherRed(){
+            setResposta("awnser escondido")
+            setPergunta("frontface errou")
+            setIconeType("close-circle-outline")
+            setIconeColor("icone red redondo")
+            setRespondida(1)  
+            setRespondidas([...respondidas,respondida])    
+                 
+        } 
+        function EscolherGreen(){
+            setResposta("awnser escondido")
+            setPergunta("frontface acertou")
+            setIconeType("checkmark-circle-outline")
+            setIconeColor("icone green redondo")
+            setRespondida(2)  
+            setRespondidas([...respondidas,respondida])      
+        }
+        function EscolherOrange(){
+            setResposta("awnser escondido")
+            setPergunta("frontface maisoumenos")
+            setIconeType("help-circle-outline")
+            setIconeColor("icone orange redondo")
+            setRespondida(3)
+            setRespondidas([...respondidas,respondida])    
+        
+        }
+        console.log(respondidas) 
+    return(
+        <> 
+     
+        <div  class="pergunta">
     <div onClick={Virar} class={pergunta}>
     <h3>{props.titulo}</h3><ion-icon class={iconeColor} name={iconeType}></ion-icon>
     </div>
@@ -49,5 +68,10 @@ export default function Pergunta(props){
     <div onClick={EscolherGreen} class={escolherGreen}><h1>Zap!</h1></div>
     </div>
 </div>
-</div> )
+     <Contador respondidas={respondidas} />
+    
+</div> 
+
+</>
+)
 }
