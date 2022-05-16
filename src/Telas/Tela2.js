@@ -1,15 +1,13 @@
-//Montar a estrutura da tela 2 ; 
-//Nao estou conseguindo :
-// -Fazer o indice ficar organizado apos embaralhar
-// - Importar os componentes da pasta Footer
 
+
+import {useEffect , useState} from 'react'
 import Pergunta from "./Pergunta"
 import Contador from "../Footer/Contador"
 import Resultado from "../Footer/Resultado"
 
-export default function Tela2({respondidas , iconeColor , iconeType }){
-   //array das perguntas
-    const question= [
+export default function Tela2({ iconeColor , iconeType  } ){
+    const [respondidas , setRespondidas]=useState([])
+    const [question , setQuestion]=useState([
         {  
         pergunta:"O que é JSX? ",
         resposta:"Uma extensão de linguagem do JavaScript"}
@@ -37,18 +35,23 @@ export default function Tela2({respondidas , iconeColor , iconeType }){
         {  
         pergunta:"Usamos estado (state) para __ ",
         resposta:"dizer para o React quais informações quando atualizadas devem renderizar a tela novamente"}
-      ]
-      const perguntas = question.map((item , index)=> <Pergunta key={index} index={index} pergunta={item.pergunta} resposta={item.resposta} />)
+      ])
+    //Embaralhando
+   useEffect(()=>{
+question.sort(randomize)
+   },[])
+      
 
   //Funcao para embaralhar
       function randomize () {
         return Math.random() - 0.5;
     }
-    //Embaralhando
-    perguntas.sort(randomize)
+  
+   
     //Reiniciar o jogo
     function reiniciar(){
         window.location.reload();
+        window.scroll(40, 0)
     }
 
 
@@ -60,16 +63,19 @@ return(
             <h1>ZapRecall</h1>
             </div>
       <div className="perguntas">
-           {perguntas} 
+           {
+               question.map((item , index)=> <Pergunta key={index} index={index} pergunta={item.pergunta} resposta={item.resposta} setRespondidas={setRespondidas} respondidas={respondidas} />)
+           } 
       </div>
+     
     {/*Logica para caso as 8 perguntas tenham sido respondidas aparecer a mensagem de parabens ou de falha*/}
-     {/* {array.length !==8 
-     ? 
-      <Contador/>
-    : 
-        {array.includes("red"== true)
-        ? 
-        <Resultado>
+    {respondidas.length !==8
+    ?
+    <Contador iconeColor={iconeColor} iconeType={iconeType} respondidas={respondidas}/>
+    :
+    respondidas.includes("red")
+    ?
+    <Resultado>
               <div class="caixa">
                         <div className="texto">
                                 <h1> 😢Putz...</h1>
@@ -77,9 +83,9 @@ return(
                                 <h3>{respondidas.length}/8</h3>
                         </div> 
 
-                <div className="icone">
+               {/* NAO DEU TEMPO DE FAZER<div className="icone">
                 ICONES DAS RESPOSTAS
-                </div>
+                  </div>*/} 
                 
                 <button onClick={()=>reiniciar()} class="reiniciar"> 
                     REINICIAR RECALL
@@ -88,24 +94,25 @@ return(
         </Resultado>
         :
         <Resultado>
-                <div class="caixa">
-                        <div className="texto"> 
-                                    <h1>😀 Parabéns!</h1>
-                                    <h2>Você não esqueceu de <br/> nenhum flashcard!</h2>
-                                    <h3>{respondidas.length}/8</h3>
-                         </div>    
+        <div class="caixa">
+                <div className="texto"> 
+                            <h1>😀 Parabéns!</h1>
+                            <h2>Você não esqueceu de <br/> nenhum flashcard!</h2>
+                            <h3>{respondidas.length}/8</h3>
+                 </div>    
 
-                    <div className="icone">
-                    ICONES DAS RESPOSTAS
-                    </div>
-                    
-                    <button onClick={()=>reiniciar()} class="reiniciar"> 
-                    REINICIAR RECALL
-                    </button>
-             </div>
-        </Resultado>
-        }*/}
-  
+          {/* NAO DEU TEMPO DE FAZER<div className="icone">
+                ICONES DAS RESPOSTAS
+                  </div>*/} 
+            
+            <button onClick={()=>reiniciar()} class="reiniciar"> 
+            REINICIAR RECALL
+            </button>
+     </div>
+</Resultado>
+
+    
+    }
 
      </div>
     </>

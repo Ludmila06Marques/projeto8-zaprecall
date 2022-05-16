@@ -203,11 +203,12 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
     width: 100%;
-    height: 171px;
+    height: 191px;
     background-color: #FFFFFF;
     position: fixed;
     bottom: 0;
     left: 0;
+   
   
 }
 .reiniciar{

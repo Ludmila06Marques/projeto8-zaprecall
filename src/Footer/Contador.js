@@ -1,12 +1,14 @@
 
 
-export default function Contador({iconeColor , iconeType ,array }){
+export default function Contador({iconeColor , iconeType ,respondidas}){
     return( 
         <div className="contador">
-            <div className="icones">
-            <ion-icon className={iconeColor} name={iconeType}></ion-icon>          
+            {/* NAO DEU TEMPO DE FAZER<div className="icones">
+                ICONES DAS RESPOSTAS
+                  </div>*/} 
+            <h3>{respondidas.length}/8</h3>
             </div>
-            <h3>{array.length}/8</h3>
-            </div>
-    )
+            
+    ) 
+ 
 }

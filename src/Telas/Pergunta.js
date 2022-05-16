@@ -1,10 +1,8 @@
 //Funcionamento das cartas
-//Resolver o escolhida nao estar pegando o valor 
 
 import React from "react"
 
-let array=[]
-export default function Pergunta(props){
+export default function Pergunta(props ){
     const [flip , setFlip]= React.useState("backface escondido ")
     const[pergunta , setPergunta]=React.useState("frontface")
     const [resposta , setResposta]=React.useState("awnser escondido")
@@ -14,7 +12,7 @@ export default function Pergunta(props){
     const [iconeType , setIconeType]=React.useState("play-outline")
     const[iconeColor , setIconeColor]=React.useState("icone")
     const[escolhida , setEscolhida]=React.useState('nada')
-    let [respondidas , setRespondidas]=React.useState([])
+   
 
     function Virar(){   
         if(iconeColor=="icone"){
@@ -32,8 +30,9 @@ export default function Pergunta(props){
             setPergunta("frontface errou")
             setIconeType("close-circle-outline")
             setIconeColor("icone red redondo")
-            setEscolhida("red") 
-              contar()               
+            setEscolhida("red")  
+              props.setRespondidas(respondidas=>[...respondidas,"red"])   
+                          
         }  
         
         function EscolherGreen(){
@@ -42,7 +41,7 @@ export default function Pergunta(props){
             setIconeType("checkmark-circle-outline")
             setIconeColor("icone green redondo")
             setEscolhida('green')            
-            contar()  
+            props.setRespondidas(respondidas=>[...respondidas,"green"])   
         }
         
         function EscolherOrange(){
@@ -51,16 +50,13 @@ export default function Pergunta(props){
             setIconeType("help-circle-outline")
             setIconeColor("icone orange redondo")
             setEscolhida('orange')
-            contar() 
+            props.setRespondidas(respondidas=>[...respondidas,"orange"])   
         }
-        function contar(){
-            array.push(escolhida)
-            setRespondidas([...respondidas])
-        }
+       
         
-console.log(escolhida)  
-console.log(array)
-console.log(array.length)
+
+
+
     return(
         <> 
     
