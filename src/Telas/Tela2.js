@@ -62,6 +62,7 @@ return(
       <div className="perguntas">
            {perguntas} 
       </div>
+   <Contador iconeType={iconeType} iconeColor={iconeColor}/>
     {/*Logica para caso as 8 perguntas tenham sido respondidas aparecer a mensagem de parabens ou de falha*/}
      {/* {array.length !==8 
      ? 
