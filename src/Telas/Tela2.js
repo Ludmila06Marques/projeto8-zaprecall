@@ -7,7 +7,7 @@ import Pergunta from "./Pergunta"
 import Contador from "../Footer/Contador"
 import Resultado from "../Footer/Resultado"
 
-export default function Tela2({respondidas , iconeColor , iconeType }){
+export default function Tela2({array , iconeColor , iconeType }){
    //array das perguntas
     const question= [
         {  
