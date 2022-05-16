@@ -55,7 +55,7 @@ export default function Pergunta(props){
         }
         function contar(){
             array.push(escolhida)
-            setRespondidas([...respondidas])
+            setRespondidas([...respondidas ,array])
         }
         
 console.log(escolhida)  
